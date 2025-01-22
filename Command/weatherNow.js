@@ -4,8 +4,8 @@ const axios = require('axios')
 const CWA_API = process.env.CWA_API
 
 module.exports = {
-    name: "weather",
-    aliases: ["w", "wn"],
+    name: "station",
+    aliases: ["ws", "wn"],
     run: async (message, args) => {
         axios
         .get(`https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0001-001?Authorization=${CWA_API}&limit=1&StationName=${args}`)

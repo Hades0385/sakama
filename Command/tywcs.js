@@ -36,7 +36,12 @@ module.exports = {
             .trim();
 
           if (cityName !== "" && suspensionInfo !== "") {
-            results.push({ city: cityName, suspension: suspensionInfo });
+			  const statuses = suspensionInfo.split("。").slice(0, -1).map((status) => {
+			  const emoji = status.includes("停止") && !status.includes("未達") ? "🔴" : "🟢";
+			  return `${emoji} ${status.trim()}`;
+			}).filter(status => status).join("\n");
+			
+            results.push({ city: cityName, suspension: statuses });
           }
         });
 

@@ -5,18 +5,18 @@ const moment = require('moment')
 const CWA_API = process.env.CWA_API;
 
 module.exports = {
-    name: "forecast",
-    aliases: ["f", "wfc"],
+    name: "forecast36",
+    aliases: ["f36", "wfc36"],
     run: async (message, args) => {
-      let areas,twon;
-      if (args.length === 2) {
-          areas = area[args[0]];
-          twon = args[1];
-      } else {
-          areas = area[findCity(args[0])];
-          twon = args[0];
-      } 
-      if ((findCity(args[0]) === null && args.length === 1)||( !area[args[0]] && args.length === 2)) {
+        let areas,twon;
+        if (args.length === 2) {
+            areas = area[args[0]];
+            twon = args[1];
+        } else {
+            areas = area[findCity(args[0])];
+            twon = args[0];
+        }  
+        if ((findCity(args[0]) === null && args.length === 1)||( !area[args[0]] && args.length === 2)) {
           const list = new ButtonBuilder()
           .setLabel('縣市鄉鎮名稱列表')
           .setURL('https://opendata.cwa.gov.tw/opendatadoc/Opendata_City.pdf')
@@ -48,11 +48,11 @@ module.exports = {
               const nowembed = new EmbedBuilder()
                 .setColor('#000000')
                 .setAuthor({ name: '鄉鎮天氣預報', iconURL: 'https://pic.616pic.com/ys_bnew_img/00/24/17/0joFE1ygYw.jpg'})
-                .setTitle(`${country}未來12hr天氣預報`)
+                .setTitle(`${country}未來36hr天氣預報`)
                 .setTimestamp()
                 .setFooter({ text: '中央氣象署開放資料', iconURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ROC_Central_Weather_Bureau.svg/1200px-ROC_Central_Weather_Bureau.svg.png' });
               let t = timeCheck(temp[0].DataTime)
-                for (let i = 0 ; i < 12 ; i += 1){
+                for (let i = 0 ; i < 36 ; i += 6){
                   nowembed
                   .addFields(
                     { name: `${tTime(temp[t+i].DataTime)}`, value: `🌡️ ${temp[t+i].ElementValue[0].Temperature}\u00B0 C \`${ci[t+i].ElementValue[0].ComfortIndexDescription}\` \n💧 ${pop3[Math.floor(t+i / 3)].ElementValue[0].ProbabilityOfPrecipitation}% \n${icon[wx[Math.floor(t+i / 3)].ElementValue[0].Weather]} ${wx[Math.floor(t+i / 3)].ElementValue[0].Weather}`, inline: true },

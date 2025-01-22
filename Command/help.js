@@ -9,15 +9,19 @@ module.exports = {
   run: async (message, args) => {
     try {
       const commands = [
-        { name: '`weather <測站站名>`', value: '查詢當前天氣資訊', inline: true },
-        { name: '`forecast <縣市> <鄉鎮市區>`', value: '查詢未來36hr天氣預報 ', inline: true },
+        { name: '`station <測站站名>`', value: '查詢氣象測站當前天氣資訊', inline: true },
+        { name: '`weather <鄉鎮市區>`', value: '查詢鄉鎮當前天氣資訊', inline: true },
+        { name: '`forecast <鄉鎮市區>`', value: '查詢未來12小時每小時天氣預報 ', inline: true },
+        { name: '`forecast36 <鄉鎮市區>`', value: '查詢未來36小時每6小時天氣預報 ', inline: true },
+        { name: '`weatherinfo`', value: '查詢全臺天氣概況 ', inline: true },
+        { name: '`alert`', value: '查詢天氣特警報發布情形 ', inline: true },
         { name: '`moontime <縣市>`', value: '查詢月出月落時間 ', inline: true },
         { name: '`suntime <縣市>`', value: '查詢日出日落時間', inline: true },
         { name: '`satellite `', value: '查詢衛星影像', inline: true },
         { name: '`radar `', value: '查詢雷達回波圖', inline: true },
         { name: '`earthquake `', value: '查詢顯著有感地震報告', inline: true },
         { name: '`airquality <測站站名>`', value: '查詢空氣品質', inline: true },
-        { name: '`uvi <縣市>`', value: '查詢紫外線等級', inline: true },
+        { name: '`uvi <縣市>`', value: '查詢紫外線等級', inline: true }, 
         { name: '`rain`', value: '查詢未來一小時降雨預估', inline: true },
         { name: '`wcs`', value: '查詢各縣市停班課訊息', inline: true },
         { name: '`tsunami`', value: '查詢海嘯資訊', inline: true },

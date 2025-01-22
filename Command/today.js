@@ -12,7 +12,7 @@ module.exports = {
         `${year} 年 已經過 ${today}%`
       )
       .setColor("#000000")
-      .setDescription(`今天是${year}年${month}月${day}日 星期${days}`)
+      .setDescription(`今天是${year}年${month}月${day}日星期${days}`)
       .addFields({
         name: `今年已過`,
         value: `${dp}天`,
@@ -30,6 +30,13 @@ module.exports = {
       .setFooter({
         text: `made with ❤ by hex`,
       });
+      if (month == 12 && day == 8) {
+        embed.setDescription(`今天是 ${year}年${month}月${day}日星期${days} \n今天是開發者的生日`)
+      } else if (month == 12 && day == 31) {
+        embed.setDescription(`今天是 ${year}年${month}月${day}日星期${days} \n${year}年的最後一天`)
+      } else if (month == 1 && day == 1) {
+        embed.setDescription(`今天是 ${year}年${month}月${day}日星期${days} \n${year}年的第一天 新年快樂!!!`)
+      }
     message.reply({ embeds: [embed] });
   },
 };
@@ -46,7 +53,7 @@ function calculate() {
   return {
     today: Math.round(progress * 100) / 100, 
     dp: daysPassed,
-    dr: daysRemaining
+    dr: daysRemaining-1
 };
 }
 

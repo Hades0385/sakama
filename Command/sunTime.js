@@ -35,7 +35,7 @@ module.exports = {
                 { name: '日落時間', value: `${suns} `, inline: true },
                 { name: '\u200B', value: `\u200B`},
                 { name: '第一道曙光', value: `${fltime} `,inline: true},
-                { name: '最後一道屬光', value: `${lltime}`, inline: true }
+                { name: '最後一道曙光', value: `${lltime}`, inline: true }
               )
               .setTimestamp()
               .setFooter({ text: '中央氣象署開放資料', iconURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ROC_Central_Weather_Bureau.svg/1200px-ROC_Central_Weather_Bureau.svg.png' });
